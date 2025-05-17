@@ -1,4 +1,4 @@
-#temperature[degC], humidity[%], co2 concentration[ppm]
+time, temperature[degC], humidity[%], co2 concentration[ppm]
 2025-04-19 16:49:42,24.71,59.65,660
 2025-04-19 16:52:58,24.73,60.33,692
 2025-04-19 16:53:43,24.73,60.34,799

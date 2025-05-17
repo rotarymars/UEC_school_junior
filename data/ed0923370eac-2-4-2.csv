@@ -1,4 +1,4 @@
-#temperature[degC], humidity[%], co2 concentration[ppm]
+time, temperature[degC], humidity[%], co2 concentration[ppm]
 2025-05-08 12:01:41,22.92,54.05,2086
 2025-05-08 12:02:16,22.97,53.82,2072
 2025-05-08 12:02:41,22.97,53.7,2031
