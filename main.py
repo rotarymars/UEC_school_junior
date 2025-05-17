@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
+from tqdm import tqdm
 
 print("Reading data...")
 file_1 = "data/c2a41857411e-2-2-2.csv"
@@ -16,7 +17,6 @@ df_3 = pd.read_csv(file_3)
 df_4 = pd.read_csv(file_4)
 print("Done")
 
-# Create a list of dataframes and their labels
 dataframes = [
     (df_1, "Sensor 1"),
     (df_2, "Sensor 2"),
@@ -24,23 +24,17 @@ dataframes = [
     (df_4, "Sensor 4")
 ]
 
-# Create subplots for each measurement type
-# plt.figure(figsize=(15, 10))
-
-# Plot each dataframe
 print("Plotting data...")
-for df, label in dataframes:
-    # Assuming the first column is time and the rest are measurements
+for df, label in tqdm(dataframes):
     time_col = df.columns[0]
     measurement_cols = df.columns[1:]
     
-    for col in measurement_cols:
+    for col in tqdm(measurement_cols):
         fig, ax = plt.subplots()
-        # plt.subplot(len(measurement_cols), 1, list(measurement_cols).index(col) + 1)
         ax.plot(df[time_col], df[col], label=f"{label} - {col}")
         ax.set_xlabel('Time')
         ax.set_ylabel(col)
         ax.legend()
         ax.grid(True)
-        # plt.show()
         plt.savefig(f"bin/{label}_{col}.png")
+print("Done")
